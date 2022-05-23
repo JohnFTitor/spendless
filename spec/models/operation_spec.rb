@@ -4,10 +4,10 @@ RSpec.describe Operation, type: :model do
   
   before :all do 
     User.destroy_all
-    @user = User.create(name: 'My name', email: 'test@example.com', password: '123456', confirmed_at: DateTime.now)
+    @user = create :user, :email
   end
 
-  subject { Operation.new(name: 'My transaction', amount: 50, author: @user)}
+  subject { create :operation, author: @user }
 
   it 'Should have a name' do 
     subject.name = nil

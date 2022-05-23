@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
   
-  subject { User.new( name: 'My name', email: 'test@example.com', password: '123456', confirmed_at: DateTime.now ) }
+  subject { build :user, :email }
 
   it 'should have name' do
     subject.name = nil  

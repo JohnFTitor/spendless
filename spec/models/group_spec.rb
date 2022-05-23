@@ -4,10 +4,10 @@ RSpec.describe Group, type: :model do
   
   before :all do 
     User.destroy_all
-    @user = User.create(name: 'My name', email: 'test@example.com', password: '123456', confirmed_at: DateTime.now)
+    @user = create :user, :email
   end
 
-  subject { Group.new(name: 'Group Name', icon: 'Icon url', author: @user) }
+  subject { create :group, author: @user }
 
   it 'Should have a name' do 
     subject.name = nil
