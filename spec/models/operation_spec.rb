@@ -5,7 +5,6 @@ RSpec.describe Operation, type: :model do
   before :all do 
     User.destroy_all
     @user = User.create(name: 'My name', email: 'test@example.com', password: '123456', confirmed_at: DateTime.now)
-
   end
 
   subject { Operation.new(name: 'My transaction', amount: 50, author: @user)}
