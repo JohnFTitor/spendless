@@ -27,6 +27,15 @@ gem 'stimulus-rails'
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem 'jbuilder'
 
+# To use Jquery in rails
+gem 'jquery-rails'
+
+# For creating fake random data
+gem 'faker', git: 'https://github.com/faker-ruby/faker.git', branch: 'master'
+
+# for authentication
+gem 'devise', '~> 4.8', '>= 4.8.1'
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
@@ -50,6 +59,7 @@ gem 'bootsnap', require: false
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
+  gem 'rspec-rails', '~> 5.1', '>= 5.1.2'
   gem 'debug', platforms: %i[mri mingw x64_mingw]
 end
 
@@ -69,6 +79,8 @@ group :test do
   gem 'capybara'
   gem 'selenium-webdriver'
   gem 'webdrivers'
+  gem 'factory_bot_rails', '~> 6.2'
 end
 
+# Tailwind CSS
 gem 'tailwindcss-rails', '~> 2.0'
