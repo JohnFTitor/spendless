@@ -8,4 +8,5 @@ class User < ApplicationRecord
   has_many :groups, foreign_key: 'author_id', dependent: :destroy 
 
   validates :name, presence: true, length: { minimum: 2 }
+  validates :password, presence: true
 end
