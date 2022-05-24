@@ -1,0 +1,11 @@
+<div class="relative flex flex-col min-h-screen items-center justify-center box-border p-5">
+  <h1 class="mb-5 text-3xl text-tertiary-800 font-semibold italic"> Spendless </h1>
+  <div class="absolute bottom-0 left-0 flex flex-col items-center w-full p-5">
+    <% if user_signed_in?  %>
+      <%= link_to 'Categories', categories_path %>
+    <% else %>
+      <%= link_to 'Log in', new_user_session_path, class: "px-2 py-3 text-xl uppercase font-light text-white bg-primary-500 mb-2 w-full text-center" %>
+      <%= link_to 'Sign up', new_user_registration_path, class: "px-2 py-3 text-xl uppercase font-light text-tertiary-300 mb-2 w-full text-center" %>
+    <% end %>
+  </div>
+</div>

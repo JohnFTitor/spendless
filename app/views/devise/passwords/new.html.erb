@@ -1,0 +1,18 @@
+<%= render 'shared/header', :title => 'Password'  %>
+
+<div class="pt-5 flex flex-col items-center w-full">
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { 'data-turbo': 'false', class: 'w-full flex flex-col items-center', method: :post }) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+
+    <div class="field">
+      <%= f.label :email, class: 'hidden' %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "w-full border-x-0 border-b-1 border-tertiary-50 p-4", placeholder: 'Email' %>
+    </div>
+
+    <div class="actions mt-5">
+      <%= f.submit "Send me reset password instructions", class: "px-6 py-2 text-white bg-secondary-500" %>
+    </div>
+  <% end %>
+
+  <%= render "devise/shared/links" %>
+</div>

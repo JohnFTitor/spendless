@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: 'Proxima Nova';
+  font-family: Proxima Nova;
   src: url("../fonts/proxima_nova_font.otf") format("opentype");
 }
 
@@ -11,4 +11,8 @@
   html {
     font-family: 'Proxima Nova', system-ui, sans-serif;
   }
+}
+
+.field {
+  width: 100%;
 }
