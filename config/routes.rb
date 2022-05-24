@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   get '/welcome', to: 'categories#splash', as: 'welcome'
 
   resources :categories, only: %i[index]
+  resources :users, only: %i[index]
 end
