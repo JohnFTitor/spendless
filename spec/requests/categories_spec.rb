@@ -6,14 +6,14 @@ RSpec.describe "Categories", type: :request do
       get categories_path
 
       expect(response).to have_http_status(:found)
-      expect(response).to render_template(:splash)
+      expect(response).to redirect_to(splash_path)
     end
 
     it 'Should redirect to splash screen if not authenticaded with root path' do 
       get '/'
 
       expect(response).to have_http_status(:found)
-      expect(response).to render_template(:splash)
+      expect(response).to redirect_to(splash_path)
     end
   end
 end
