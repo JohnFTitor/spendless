@@ -1,1 +1,16 @@
 <%= render 'shared/header', :title => 'Categories' %>
+<div>
+  <ul class="groups">
+    <% @categories.each do |category| %>
+      <li>
+        <%= link_to category_transactions_path(category_id: category.id), id: "Group-#{category.id}", class: 'group' do %>
+          <img src=<%= category.icon %> alt=<%= category.name %>>
+          <h2> <%= category.name %> </h2>
+          <p> $<%= category.total_amount %> </p>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+  <%= link_to 'Add New Category', new_category_path %>
+</div>
+

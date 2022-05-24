@@ -9,4 +9,8 @@ class User < ApplicationRecord
 
   validates :name, presence: true, length: { minimum: 2 }
   validates :password, presence: true
+
+  def ordered_groups
+    groups.order(created_at: :desc)
+  end
 end
