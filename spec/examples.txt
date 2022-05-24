@@ -1,22 +1,28 @@
-example_id                                 | status | run_time        |
------------------------------------------- | ------ | --------------- |
-./spec/models/group_operation_spec.rb[1:1] | passed | 0.00099 seconds |
-./spec/models/group_operation_spec.rb[1:2] | passed | 0.00569 seconds |
-./spec/models/group_operation_spec.rb[1:3] | passed | 0.01544 seconds |
-./spec/models/group_operation_spec.rb[1:4] | passed | 0.02402 seconds |
-./spec/models/group_spec.rb[1:1]           | passed | 0.00268 seconds |
-./spec/models/group_spec.rb[1:2]           | passed | 0.00304 seconds |
-./spec/models/group_spec.rb[1:3]           | passed | 0.00271 seconds |
-./spec/models/group_spec.rb[1:4]           | passed | 0.00233 seconds |
-./spec/models/operation_spec.rb[1:1]       | passed | 0.00218 seconds |
-./spec/models/operation_spec.rb[1:2]       | passed | 0.00267 seconds |
-./spec/models/operation_spec.rb[1:3]       | passed | 0.00296 seconds |
-./spec/models/operation_spec.rb[1:4]       | passed | 0.00248 seconds |
-./spec/models/operation_spec.rb[1:5]       | passed | 0.00267 seconds |
-./spec/models/operation_spec.rb[1:6]       | passed | 0.00249 seconds |
-./spec/models/user_spec.rb[1:1]            | passed | 0.00397 seconds |
-./spec/models/user_spec.rb[1:2]            | passed | 0.00418 seconds |
-./spec/models/user_spec.rb[1:3]            | passed | 0.22645 seconds |
-./spec/models/user_spec.rb[1:4]            | passed | 0.00488 seconds |
-./spec/requests/categories_spec.rb[1:1:1]  | passed | 0.00394 seconds |
-./spec/requests/categories_spec.rb[1:1:2]  | passed | 0.17763 seconds |
+example_id                                    | status  | run_time        |
+--------------------------------------------- | ------- | --------------- |
+./spec/helpers/categories_helper_spec.rb[1:1] | pending | 0.00001 seconds |
+./spec/integration/categories_spec.rb[1:1:1]  | passed  | 0.00706 seconds |
+./spec/integration/categories_spec.rb[1:1:2]  | passed  | 0.02182 seconds |
+./spec/integration/categories_spec.rb[1:1:3]  | passed  | 0.01675 seconds |
+./spec/integration/categories_spec.rb[1:1:4]  | passed  | 0.10953 seconds |
+./spec/integration/categories_spec.rb[1:1:5]  | passed  | 0.04253 seconds |
+./spec/models/group_operation_spec.rb[1:1]    | passed  | 0.00106 seconds |
+./spec/models/group_operation_spec.rb[1:2]    | passed  | 0.00581 seconds |
+./spec/models/group_operation_spec.rb[1:3]    | passed  | 0.01462 seconds |
+./spec/models/group_operation_spec.rb[1:4]    | passed  | 0.02057 seconds |
+./spec/models/group_spec.rb[1:1]              | passed  | 0.00739 seconds |
+./spec/models/group_spec.rb[1:2]              | passed  | 0.00292 seconds |
+./spec/models/group_spec.rb[1:3]              | passed  | 0.00265 seconds |
+./spec/models/group_spec.rb[1:4]              | passed  | 0.00242 seconds |
+./spec/models/operation_spec.rb[1:1]          | passed  | 0.00248 seconds |
+./spec/models/operation_spec.rb[1:2]          | passed  | 0.00235 seconds |
+./spec/models/operation_spec.rb[1:3]          | passed  | 0.00293 seconds |
+./spec/models/operation_spec.rb[1:4]          | passed  | 0.00251 seconds |
+./spec/models/operation_spec.rb[1:5]          | passed  | 0.00663 seconds |
+./spec/models/operation_spec.rb[1:6]          | passed  | 0.00251 seconds |
+./spec/models/user_spec.rb[1:1]               | passed  | 0.00427 seconds |
+./spec/models/user_spec.rb[1:2]               | passed  | 0.00438 seconds |
+./spec/models/user_spec.rb[1:3]               | passed  | 0.00279 seconds |
+./spec/models/user_spec.rb[1:4]               | passed  | 0.00378 seconds |
+./spec/requests/categories_spec.rb[1:1:1]     | passed  | 0.00379 seconds |
+./spec/requests/categories_spec.rb[1:1:2]     | passed  | 0.17784 seconds |
