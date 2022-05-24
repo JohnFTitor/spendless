@@ -1,15 +1,14 @@
 require 'rails_helper'
 
 RSpec.describe Group, type: :model do
-  
-  before :all do 
+  before :all do
     User.destroy_all
     @user = create :user, :email
   end
 
   subject { create :group, author: @user }
 
-  it 'Should have a name' do 
+  it 'Should have a name' do
     subject.name = nil
     expect(subject).to_not be_valid
   end
@@ -19,12 +18,12 @@ RSpec.describe Group, type: :model do
     expect(subject).to_not be_valid
   end
 
-  it 'Should have an author' do 
+  it 'Should have an author' do
     subject.author = nil
     expect(subject).to_not be_valid
   end
 
-  it 'Should have an icon' do 
+  it 'Should have an icon' do
     subject.icon = nil
     expect(subject).to_not be_valid
   end
