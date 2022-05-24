@@ -11,9 +11,11 @@
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>  
-    <main class="container mx-auto mt-28 px-5 flex">
+    <% if notice || alert %>
+      <p class="absolute p-2 text-center text-white bg-secondary-800"><%= notice %></p>
+      <p class="absolute p-2 text-center text-white bg-red-800"><%= alert %></p>  
+    <% end %>
+    <main>
       <%= yield %>
     </main>
   </body>
