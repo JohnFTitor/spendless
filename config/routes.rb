@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   root "categories#index"
 
-  get '/welcome', to: 'categories#splash', as: 'splash'
+  get '/welcome', to: 'categories#splash', as: 'welcome'
 
   resources :categories, only: %i[index]
 end

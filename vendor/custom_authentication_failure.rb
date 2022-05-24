@@ -1,6 +1,6 @@
 class CustomAuthenticationFailure < Devise::FailureApp
   def redirect_url
-    splash_path
+    welcome_path
   end
 
   def respond

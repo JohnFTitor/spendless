@@ -1,0 +1,11 @@
+<div>
+  <h1> Spendless </h1>
+  <div>
+    <% if user_signed_in?  %>
+      <%= link_to 'Categories', categories_path %>
+    <% else %>
+      <%= link_to 'Log in', new_user_session_path %>
+      <%= link_to 'Sign up', new_user_registration_path %>
+    <% end %>
+  </div>
+</div>
