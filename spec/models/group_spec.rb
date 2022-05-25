@@ -8,22 +8,22 @@ RSpec.describe Group, type: :model do
 
   describe 'Validations' do
     subject { create :group, author: @user }
-  
+
     it 'Should have a name' do
       subject.name = nil
       expect(subject).to_not be_valid
     end
-  
+
     it 'Should have a name with more than 2 characters' do
       subject.name = 'CH'
       expect(subject).to_not be_valid
     end
-  
+
     it 'Should have an author' do
       subject.author = nil
       expect(subject).to_not be_valid
     end
-  
+
     it 'Should have an icon' do
       subject.icon = nil
       expect(subject).to_not be_valid
@@ -31,12 +31,11 @@ RSpec.describe Group, type: :model do
   end
 
   describe 'Methods' do
-  
     it 'should return the list of operations ordered by last added' do
       group = create :group, author: @user
       operations = create_list :operation, 20, author: @user
       operations.each do |operation|
-        GroupOperation.create(group: group, operation: operation)
+        GroupOperation.create(group:, operation:)
       end
       last_added = operations[operations.length - 1]
 
@@ -46,6 +45,5 @@ RSpec.describe Group, type: :model do
       expect(ordered_operations.length).to eq(operations.length)
       expect(ordered_last_added).to eq(last_added)
     end
-
   end
 end

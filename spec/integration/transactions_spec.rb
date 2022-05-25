@@ -12,7 +12,7 @@ RSpec.describe 'Transactions integration', type: :feature do
       group = create :group, author: @user
       @operations = create_list :operation, 20, author: @user
       @operations.each do |operation|
-        GroupOperation.create(group: group, operation: operation)
+        GroupOperation.create(group:, operation:)
       end
       @group = Group.last
     end
@@ -38,7 +38,7 @@ RSpec.describe 'Transactions integration', type: :feature do
     end
 
     it 'should have all the operations for the specified category' do
-      transactions = page.find_all('.transaction')    
+      transactions = page.find_all('.transaction')
 
       expect(transactions.length).to eq(20)
     end
@@ -83,7 +83,7 @@ RSpec.describe 'Transactions integration', type: :feature do
 
     it 'should show an error message if no Name is supplied' do
       fill_in('Amount', with: 50)
-      
+
       click_button 'Save'
 
       expect(page).to have_content('Error: Please make sure to fill all fields with the proper input')
