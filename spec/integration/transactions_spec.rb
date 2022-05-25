@@ -44,13 +44,13 @@ RSpec.describe 'Transactions integration', type: :feature do
     end
 
     it 'should have a button to create a new transaction' do
-      expect(page).to find_link('Add a new transaction')
+      expect(page).to have_content('Add a new transaction')
     end
 
     it 'should redirect to new transaction if button is pressed' do
       click_link 'Add a new transaction'
 
-      expect(page).to have_current_path(new_category_transaction(category_id: @group.id))
+      expect(page).to have_current_path(new_category_transaction_path(category_id: @group.id))
     end
 
     it 'should have the name and amount of each operation' do
