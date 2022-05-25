@@ -1,8 +1,8 @@
 <%= render 'shared/header', :title => 'Categories' %>
 <div class="bg-slate-300">
-  <ul class="groups p-3 flex flex-col w-full gap-3">
+  <ul class="groups p-3 flex flex-col w-full gap-3 box-border">
     <% @categories.each do |category| %>
-      <li>
+      <li class="w-full">
         <%= link_to category_transactions_path(category_id: category.id), id: "Group-#{category.id}", class: 'group flex justify-between items-center p-3 bg-white' do %>
           <div class="card flex gap-5 items-center">
             <div class="relative w-16 h-16">
