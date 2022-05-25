@@ -37,7 +37,7 @@ RSpec.describe 'Transactions integration', type: :feature do
       expect(page).to have_content("Total amount: #{@group.total_amount}")
     end
 
-    it 'should have all the operations for the specified transactions' do
+    it 'should have all the operations for the specified category' do
       transactions = page.find_all('.transaction')    
 
       expect(transactions.length).to eq(20)
