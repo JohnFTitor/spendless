@@ -1,16 +1,20 @@
 <%= render 'shared/header', :title => 'Categories' %>
-<div>
-  <ul class="groups">
+<div class="bg-slate-300">
+  <ul class="groups p-3 flex flex-col w-full gap-3">
     <% @categories.each do |category| %>
       <li>
-        <%= link_to category_transactions_path(category_id: category.id), id: "Group-#{category.id}", class: 'group' do %>
-          <img src=<%= category.icon %> alt=<%= category.name %>>
-          <h2> <%= category.name %> </h2>
-          <p> $<%= category.total_amount %> </p>
+        <%= link_to category_transactions_path(category_id: category.id), id: "Group-#{category.id}", class: 'group flex justify-between items-center p-3 bg-white' do %>
+          <div class="card flex gap-5 items-center">
+            <div class="relative w-16 h-16">
+              <img src=<%= category.icon %> alt=<%= category.name %> class="absolute top-0 w-full h-full object-cover" >
+            </div>
+            <h2 class="text-tertiary-500 text-lg"> <%= category.name %> </h2>
+          </div>
+          <p class="font-semibold text-lg"> $<%= category.total_amount %> </p>
         <% end %>
       </li>
     <% end %>
   </ul>
-  <%= link_to 'Add New Category', new_category_path %>
+  <%= link_to 'Add New Category', new_category_path, class: "block sticky bottom-0 text-xl uppercase text-light text-center text-white bg-secondary-800 w-full p-5 mt-20"  %>
 </div>
 
