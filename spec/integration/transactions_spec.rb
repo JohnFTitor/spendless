@@ -60,4 +60,86 @@ RSpec.describe 'Transactions integration', type: :feature do
       end
     end
   end
+
+  describe 'Add new transaction page' do
+    before :all do
+      Group.destroy_all
+      @group = create :group, author: @user
+    end
+
+    before :each do
+      visit new_user_session_path
+      fill_in('Email', with: @user.email)
+      fill_in('Password', with: @user.password)
+      click_button 'Log in'
+      visit new_category_transaction_path(category_id: @group.id)
+    end
+
+    it 'should have name, amount and categories fields' do
+      expect(page).to have_field('Name')
+      expect(page).to have_field('Amount')
+      expect(page).to have_field('Categories')
+    end
+
+    it 'should show an error message if no Name is supplied' do
+      fill_in('Amount', with: 50)
+      
+      click_button 'Save'
+
+      expect(page).to have_content('Error: Please make sure to fill all fields with the proper input')
+    end
+
+    it 'should show an error message if no Amount is supplied' do
+      fill_in('Name', with: 'Test transaction')
+
+      click_button 'Save'
+
+      expect(page).to have_content('Error: Please make sure to fill all fields with the proper input')
+    end
+
+    it 'should show an error message if name is too short' do
+      fill_in('Name', with: 'No')
+      fill_in('Amount', with: 50)
+
+      click_button 'Save'
+
+      expect(page).to have_content('Error: Please make sure to fill all fields with the proper input')
+    end
+
+    it 'should show an error message if amount is less or equal to zero' do
+      fill_in('Name', with: 'Test transaction')
+      fill_in('Amount', with: 0)
+
+      click_button 'Save'
+
+      expect(page).to have_content('Error: Please make sure to fill all fields with the proper input')
+    end
+
+    it 'should redirect to the first category page on success' do
+      fill_in('Name', with: 'Name test')
+      fill_in('Amount', with: 50)
+
+      click_button 'Save'
+
+      expect(page).to have_content('Transaction created successfully')
+      expect(page).to have_current_path(category_transactions_path(category_id: @group.id))
+    end
+
+    it 'should contain the new transaction when returned to category page' do
+      fill_in('Name', with: 'Name test')
+      fill_in('Amount', with: 50)
+
+      click_button 'Save'
+
+      expect(page).to have_content('Name test')
+    end
+
+    it 'should redirect to home page if home link is pressed' do
+      home = page.find('a', id: 'Home')
+
+      home.click
+
+      expect(page).to have_current_path('/')
+    end
+  end
 end
