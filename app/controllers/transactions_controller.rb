@@ -5,7 +5,7 @@ class TransactionsController < ApplicationController
   end
 
   def new 
-    @categories = current_user.groups
+    @categories = current_user.ordered_groups
     operation = Operation.new
     id = params[:category_id]
     respond_to do |format|
@@ -24,6 +24,14 @@ class TransactionsController < ApplicationController
         if transaction.save
           # First record is empty so gets deleted
           categories.shift
+
+          # If no category was selected
+          if categories.empty?
+            @categories = current_user.groups
+            flash.now[:alert] = 'Error: Please make sure to fill all fields with the proper input'
+            render :new, status: 422, locals: { operation: transaction, id: params[:category_id] }
+            return
+          end
 
           first_category_id = categories[0]
           
