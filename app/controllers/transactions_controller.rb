@@ -1,4 +1,3 @@
 class TransactionsController < ApplicationController
-  def index
-  end
+  def index; end
 end

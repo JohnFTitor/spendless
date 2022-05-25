@@ -52,12 +52,12 @@ RSpec.describe 'Categories integration', type: :feature do
   end
 
   describe 'Categories page' do
-    before :all do 
+    before :all do
       Group.destroy_all
       groups = create_list :group, 20, author: @user
       operations = create_list :operation, 20, author: @user
       groups.each_with_index do |group, index|
-        GroupOperation.create(group: group, operation: operations[index])
+        GroupOperation.create(group:, operation: operations[index])
       end
     end
 
@@ -69,7 +69,6 @@ RSpec.describe 'Categories integration', type: :feature do
       visit categories_path
     end
 
-
     it 'should have an icon for each group' do
       container = page.find('.groups')
       images = container.find_all('img')
@@ -78,7 +77,7 @@ RSpec.describe 'Categories integration', type: :feature do
     end
 
     it 'should have the name of each category' do
-      groups = Group.all 
+      groups = Group.all
 
       groups.each do |group|
         expect(page).to have_content(group.name)
@@ -86,7 +85,7 @@ RSpec.describe 'Categories integration', type: :feature do
     end
 
     it 'should have the total ammount of each category' do
-      groups = Group.all 
+      groups = Group.all
 
       groups.each do |group|
         expect(page).to have_content("$#{group.total_amount}")
@@ -111,11 +110,11 @@ RSpec.describe 'Categories integration', type: :feature do
     end
   end
 
-  describe 'Add new category page' do 
+  describe 'Add new category page' do
     before :all do
       Group.destroy_all
     end
-    
+
     before :each do
       visit new_user_session_path
       fill_in('Email', with: @user.email)
@@ -131,7 +130,7 @@ RSpec.describe 'Categories integration', type: :feature do
 
     it 'should show an error message if no Icon is supplied' do
       fill_in('Name', with: 'Test Category')
-      
+
       click_button 'Save'
 
       expect(page).to have_content('Error: Please make sure to fill all fields with the proper input')
@@ -139,7 +138,7 @@ RSpec.describe 'Categories integration', type: :feature do
 
     it 'should show an error message if no name is supplied' do
       fill_in('Icon', with: 'Test Category')
-      
+
       click_button 'Save'
 
       expect(page).to have_content('Error: Please make sure to fill all fields with the proper input')
@@ -148,7 +147,7 @@ RSpec.describe 'Categories integration', type: :feature do
     it 'should show an error message if name is too short' do
       fill_in('Name', with: 'No')
       fill_in('Icon', with: 'Test Category')
-      
+
       click_button 'Save'
 
       expect(page).to have_content('Error: Please make sure to fill all fields with the proper input')
@@ -157,7 +156,7 @@ RSpec.describe 'Categories integration', type: :feature do
     it 'should redirect to home page on success' do
       fill_in('Name', with: 'Name test')
       fill_in('Icon', with: 'Test Category')
-      
+
       click_button 'Save'
 
       expect(page).to have_content('Category created successfully')
@@ -167,13 +166,13 @@ RSpec.describe 'Categories integration', type: :feature do
     it 'should contain the new category when returned to home page' do
       fill_in('Name', with: 'Name test')
       fill_in('Icon', with: 'Test Category')
-      
+
       click_button 'Save'
 
       expect(page).to have_content('Name test')
     end
 
-    it 'should redirect to home page if home link is pressed' do 
+    it 'should redirect to home page if home link is pressed' do
       home = page.find('a', id: 'Home')
 
       home.click
