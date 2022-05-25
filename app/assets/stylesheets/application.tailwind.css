@@ -16,3 +16,7 @@
 .field {
   width: 100%;
 }
+
+.group .card {
+  min-width: 75%;
+}
