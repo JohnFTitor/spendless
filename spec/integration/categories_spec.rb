@@ -110,4 +110,75 @@ RSpec.describe 'Categories integration', type: :feature do
       expect(page).to have_current_path(new_category_path)
     end
   end
+
+  describe 'Add new category page' do 
+    before :all do
+      Group.destroy_all
+    end
+    
+    before :each do
+      visit new_user_session_path
+      fill_in('Email', with: @user.email)
+      fill_in('Password', with: @user.password)
+      click_button 'Log in'
+      visit new_category_path
+    end
+
+    it 'should have name and icon fields' do
+      expect(page).to have_field('Name')
+      expect(page).to have_field('Icon')
+    end
+
+    it 'should show an error message if no Icon is supplied' do
+      fill_in('Name', with: 'Test Category')
+      
+      click_button 'Save'
+
+      expect(page).to have_content('Error: Please make sure to fill all fields with the proper input')
+    end
+
+    it 'should show an error message if no name is supplied' do
+      fill_in('Icon', with: 'Test Category')
+      
+      click_button 'Save'
+
+      expect(page).to have_content('Error: Please make sure to fill all fields with the proper input')
+    end
+
+    it 'should show an error message if name is too short' do
+      fill_in('Name', with: 'No')
+      fill_in('Icon', with: 'Test Category')
+      
+      click_button 'Save'
+
+      expect(page).to have_content('Error: Please make sure to fill all fields with the proper input')
+    end
+
+    it 'should redirect to home page on success' do
+      fill_in('Name', with: 'Name test')
+      fill_in('Icon', with: 'Test Category')
+      
+      click_button 'Save'
+
+      expect(page).to have_content('Category created successfully')
+      expect(page).to have_current_path('/')
+    end
+
+    it 'should contain the new category when returned to home page' do
+      fill_in('Name', with: 'Name test')
+      fill_in('Icon', with: 'Test Category')
+      
+      click_button 'Save'
+
+      expect(page).to have_content('Name test')
+    end
+
+    it 'should redirect to home page if home link is pressed' do 
+      home = page.find('a', id: 'Home')
+
+      home.click
+
+      expect(page).to have_current_path('/')
+    end
+  end
 end
