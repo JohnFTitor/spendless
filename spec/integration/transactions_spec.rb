@@ -34,7 +34,7 @@ RSpec.describe 'Transactions integration', type: :feature do
     end
 
     it 'should show the total amount of the transactions for that category' do
-      expect(page).to have_content("Total amount: #{@group.total_amount}")
+      expect(page).to have_content("Total amount: $#{@group.total_amount}")
     end
 
     it 'should have all the operations for the specified category' do
