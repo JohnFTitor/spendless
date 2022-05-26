@@ -13,6 +13,9 @@ module Spendless
 
     config.autoload_paths += %W(#{config.root}/vendor)
 
+    # config/application.rb
+    config.assets.initialize_on_precompile = false
+
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files
