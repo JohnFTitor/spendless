@@ -10,7 +10,9 @@ module Spendless
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
-
+    
+    config.autoload = :classic
+    
     config.autoload_paths += %W(#{config.root}/vendor)
 
     # config/application.rb
