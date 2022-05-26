@@ -46,7 +46,7 @@ class TransactionsController < ApplicationController
     if categories.empty?
       @categories = current_user.ordered_groups
       flash.now[:alert] = 'Error: Please make sure to fill all fields with the proper input'
-      render :new, status: 422, locals: { operation: transaction, id: id }
+      render :new, status: 422, locals: { operation: transaction, id: }
       return
     end
 
