@@ -1,0 +1,23 @@
+<%= render 'shared/header', :title => 'Transaction' %>
+<div class="py-5 flex flex-col items-center w-full">
+  <%= form_with model: operation, url: category_transactions_url(category_id: id), method: :post, class: 'w-full flex flex-col items-center' do |f| %>
+    <div class="field">
+      <%= f.label :name, class: 'hidden' %>
+      <%= f.text_field :name, autofocus: true, class: "w-full border-x-0 border-b-1 border-tertiary-50 p-4", placeholder: 'Name (Minimun 3 characters)' %>
+    </div>
+
+    <div class="field">
+      <%= f.label :amount, class: 'hidden' %>
+      <%= f.number_field :amount, autofocus: true, class: "w-full border-x-0 border-b-1 border-tertiary-50 p-4", placeholder: 'Amount (Greater than 0)' %>
+    </div>
+
+    <div class="field flex flex-col mt-5" >
+      <%= f.label :categories, class: "text-xl text-tertiary-500 mb-3" %>
+      <%= f.select :categories, @categories.map { |t| [t.name, t.id]}, { :selected => id }, { :multiple => true, class: "categories w-full h-72 border-x-0 border-y-2 border-tertiary-50 text-tertiary-500" } %>
+    </div>
+
+    <div class="actions mt-5">
+      <%= f.submit "Save", class: "px-6 py-2 text-white bg-secondary-500" %>
+    </div>
+  <% end %>
+</div>

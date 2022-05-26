@@ -20,3 +20,10 @@
 .group .card {
   min-width: 75%;
 }
+
+.categories option {
+  display: block;
+  box-sizing: border-box;
+  padding: 20px 10px;
+  border-bottom: 1px solid gray;
+}
