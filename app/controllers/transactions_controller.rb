@@ -22,9 +22,9 @@ class TransactionsController < ApplicationController
     respond_to do |format|
       format.html do
         if transaction.save
-          create_relation(categories, transaction, params[:id])
+          create_relation(categories, transaction, params[:category_id])
         else
-          @categories = current_user.groups
+          @categories = current_user.ordered_groups
           flash.now[:alert] = 'Error: Please make sure to fill all fields with the proper input'
           render :new, status: 422, locals: { operation: transaction, id: params[:category_id] }
         end
@@ -44,7 +44,7 @@ class TransactionsController < ApplicationController
 
     # If no category was selected
     if categories.empty?
-      @categories = current_user.groups
+      @categories = current_user.ordered_groups
       flash.now[:alert] = 'Error: Please make sure to fill all fields with the proper input'
       render :new, status: 422, locals: { operation: transaction, id: }
       return
