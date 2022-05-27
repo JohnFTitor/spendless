@@ -1,0 +1,28 @@
+<%= render 'shared/header', :title => 'Login'  %>
+<div class="pt-5 flex flex-col items-center w-full">
+  <%= form_for(resource, as: resource_name, html: { 'data-turbo': 'false', class: 'w-full flex flex-col items-center' }, url: session_path(resource_name)) do |f| %>
+    <div class="field">
+      <%= f.label :email, class: 'hidden' %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'Email', class: 'w-full border-x-0 border-b-1 border-tertiary-50 p-4'  %>
+    </div>
+
+    <div class="field">
+      <%= f.label :password, class: 'hidden' %>
+      <%= f.password_field :password, autocomplete: "current-password", placeholder: 'Password', class: 'w-full border-x-0 border-b-1 border-tertiary-50 p-4' %>
+    </div>
+
+    <% if devise_mapping.rememberable? %>
+      <div class="my-3">
+        <%= f.check_box :remember_me %>
+        <%= f.label :remember_me, class: "text-tertiary-500"%>
+      </div>
+    <% end %>
+
+    <div class="actions">
+      <%= f.submit "Log in", class: "px-6 py-2 text-white bg-secondary-500" %>
+    </div>
+  <% end %>
+
+  <%= render "devise/shared/links" %>
+</div>
+
