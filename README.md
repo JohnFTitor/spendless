@@ -12,7 +12,7 @@
 
 Spendless is a Ruby on Rails application that allows users to keep track of their expenses and categories. Manage your own money, manage your own life
 
-Note: As of today, Spendless only includes a mobile version. Desktop version will be comming soon
+Note: As of today, Spendless only includes a mobile version. The desktop version will be coming soon
 
 ## Deployment
 
