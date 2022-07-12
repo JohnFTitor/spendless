@@ -1,14 +1,14 @@
 <%= render 'shared/header', :title => 'Login'  %>
-<div class="pt-5 flex flex-col items-center w-full">
-  <%= form_for(resource, as: resource_name, html: { 'data-turbo': 'false', class: 'w-full flex flex-col items-center' }, url: session_path(resource_name)) do |f| %>
+<div class="pt-5 sm:pt-20 flex flex-col items-center justify-center w-full">
+  <%= form_for(resource, as: resource_name, html: { 'data-turbo': 'false', class: 'w-full max-w-2xl sm:gap-5 flex flex-col items-center' }, url: session_path(resource_name)) do |f| %>
     <div class="field">
       <%= f.label :email, class: 'hidden' %>
-      <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'Email', class: 'w-full border-x-0 border-b-1 border-tertiary-50 p-4'  %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'Email', class: 'w-full border-x-0 sm:border border-b-1 border-tertiary-50 p-4'  %>
     </div>
 
     <div class="field">
       <%= f.label :password, class: 'hidden' %>
-      <%= f.password_field :password, autocomplete: "current-password", placeholder: 'Password', class: 'w-full border-x-0 border-b-1 border-tertiary-50 p-4' %>
+      <%= f.password_field :password, autocomplete: "current-password", placeholder: 'Password', class: 'w-full border-x-0 sm:border border-b-1 border-tertiary-50 p-4' %>
     </div>
 
     <% if devise_mapping.rememberable? %>

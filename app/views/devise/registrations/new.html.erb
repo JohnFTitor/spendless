@@ -1,26 +1,26 @@
 <%= render 'shared/header', :title => 'Register'  %>
-<div class="pt-5 flex flex-col items-center w-full">
-  <%= form_for(resource, as: resource_name, html: { 'data-turbo': 'false', class: 'w-full flex flex-col items-center' }, url: registration_path(resource_name)) do |f| %>
+<div class="pt-5 sm:pt-16 flex flex-col items-center w-full">
+  <%= form_for(resource, as: resource_name, html: { 'data-turbo': 'false', class: 'w-full max-w-2xl flex flex-col sm:gap-5 items-center' }, url: registration_path(resource_name)) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
 
     <div class="field">
       <%= f.label :name, class: 'hidden' %>
-      <%= f.text_field :name, autofocus: true, class: "w-full border-x-0 border-b-1 border-tertiary-50 p-4", placeholder: 'Full name' %>
+      <%= f.text_field :name, autofocus: true, class: "w-full border-x-0 sm:border border-b-1 border-tertiary-50 p-4", placeholder: 'Full name' %>
     </div>
 
     <div class="field">
       <%= f.label :email, class: 'hidden' %>
-      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "w-full border-x-0 border-b-1 border-tertiary-50 p-4", placeholder: 'Email' %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "w-full border-x-0 sm:border border-b-1 border-tertiary-50 p-4", placeholder: 'Email' %>
     </div>
 
     <div class="field">
       <%= f.label :password, class: 'hidden' %>
-      <%= f.password_field :password, autocomplete: "new-password", class: "w-full border-x-0 border-b-1 border-tertiary-50 p-4", placeholder: "Password (Minimun #{@minimum_password_length} characters)" %>
+      <%= f.password_field :password, autocomplete: "new-password", class: "w-full border-x-0 sm:border border-b-1 border-tertiary-50 p-4", placeholder: "Password (Minimun #{@minimum_password_length} characters)" %>
     </div>  
 
     <div class="field">
       <%= f.label :password_confirmation, class: 'hidden' %>
-      <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "w-full border-x-0 border-b-1 border-tertiary-50 p-4", placeholder: 'Confirm password' %>
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "w-full border-x-0 sm:border border-b-1 border-tertiary-50 p-4", placeholder: 'Confirm password' %>
     </div>
 
     <div class="actions mt-5">
